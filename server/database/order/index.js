@@ -11,16 +11,16 @@ const OrderSchema = new mongoose.Schema(
         food: [
           {
             details: { type: mongoose.Types.ObjectId, ref: "foods" },
-            quantity: { type: number, required: true },
+            quantity: { type: Number, required: true },
           },
         ],
         payMode: { type: String, required: true },
-        status: { type: string, default: "placed" },
+        status: { type: String, default: "Placed" },
         paymentDetails: {
-          itemTotal: { type: number, required: true },
-          promo: { type: number, required: true },
-          tax: { type: number, required: true },
-          razorPay_payment_id: { type: string, required: true },
+          itemTotal: { type: Number, required: true },
+          promo: { type: Number, required: true },
+          tax: { type: Number, required: true },
+          razorPay_payment_id: { type: String, required: true },
         },
       },
     ],
@@ -30,4 +30,4 @@ const OrderSchema = new mongoose.Schema(
   }
 );
 
-export const OrderModel = mongoose.Schema("orders", OrderedSchema);
+export const OrderModel = mongoose.model("orders", OrderSchema);
